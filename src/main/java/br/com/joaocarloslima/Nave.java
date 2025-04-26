@@ -7,8 +7,19 @@ public class Nave extends Asset{
     }
 
     public Tiro atirar(int poder){
-        return null;
-        
+        Tiro tiro = new Tiro(getX(),getY(),getVelocidade(),getDirecao(),poder);
+        return tiro;
+    }
+
+    @Override
+    public void mover() {
+        super.mover();
+        if(getX() <= 0 && getX() >= 590){
+            int direction = (getDirecao() == Direcao.DIREITA ? 1 : -1);
+
+            setX((getX() + direction)*getVelocidade());
+        }
+
     }
 
 }
